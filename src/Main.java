@@ -18,29 +18,6 @@ public class Main {
 		}
 //		}
 		System.exit(0);
-//		controler.show();
-//		serialPort = new SerialPort("COM5");
-//		try {
-//			serialPort.openPort();
-//
-//			serialPort.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-//
-//			serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN | SerialPort.FLOWCONTROL_RTSCTS_OUT);
-//
-//			serialPort.addEventListener(new PortReader(), SerialPort.MASK_RXCHAR);
-//			System.out.println(serialPort.readString());
-//			System.out.println(serialPort.isOpened());
-//			
-////			Thread.sleep(3000);
-////			serialPort.writeString("0 0 255 2");
-////			serialPort.writeString("0 0 255 -1");
-//			Scanner scan = new Scanner(System.in);
-//			while(true){
-//				serialPort.writeString(scan.nextLine());
-//			}
-//		} catch (SerialPortException ex) {
-//			System.out.println("There are an error on writing string to port : " + ex);
-//		}
 
 	}
 
