@@ -16,7 +16,6 @@ public class Main {
 			controler.set(255, 0, 0, i);
 			Thread.sleep(5L);
 		}
-//		}
 		System.exit(0);
 
 	}
