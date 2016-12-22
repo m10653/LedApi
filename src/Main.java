@@ -11,7 +11,6 @@ public class Main {
 	public static final long timeout = 4000L;
 	public static void main(String[] args) throws InterruptedException, SerialPortException, SerialPortTimeoutException, InvalidLedDeviceException {
 		LedControler controler = new LedControler("COM5");
-//		for(int r = 0; r < 256; r ++){
 		for(int i = 0; i < 50; i++){
 			controler.set(255, 0, 0, i);
 			Thread.sleep(5L);
