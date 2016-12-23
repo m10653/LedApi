@@ -1,39 +1,35 @@
-import java.util.Scanner;
-
 import jssc.SerialPort;
-import jssc.SerialPortEvent;
-import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 import jssc.SerialPortTimeoutException;
 
 public class Main {
 	public static SerialPort serialPort;
 	public static final long timeout = 4000L;
+
 	public static void main(String[] args) throws InterruptedException, SerialPortException, SerialPortTimeoutException, InvalidLedDeviceException {
 		LedControler controler = new LedControler("COM5");
-		for(int i = 0; i < 50; i++){
-			controler.set(255, 0, 0, i);
-			Thread.sleep(5L);
+		controler.toggleAutoShow();
+		for (int j = 0; j < 500 / 2; j++) {
+			color(controler, (int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+			random(controler);
+			color(controler, 255, 255, 255);
+			color(controler, 0, 0, 0);
 		}
+		Thread.sleep(500);
+
 		System.exit(0);
 
 	}
 
-	private static class PortReader implements SerialPortEventListener {
-		@Override
-		public void serialEvent(SerialPortEvent event) {
-			System.out.print(event.getEventValue());
-//			if (event.isRXCHAR() && event.getEventValue() > 0) {
-//				try {
-//					String receivedData = serialPort.readString(event.getEventValue());
-//					
-//					System.out.println("Received response: " + receivedData);
-//					
-//				} catch (SerialPortException ex) {
-//					System.out.println("Error in receiving string from COM-port: " + ex);
-//				}
-//			}
+	private static void random(LedControler c) throws SerialPortException {
+		for (int i = 0; i < 50; i++) {
+			c.set((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255), i);
 		}
+	}
 
+	private static void color(LedControler c, int r, int g, int b) throws SerialPortException {
+		for (int i = 0; i < 50; i++) {
+			c.set(r, g, b, i);
+		}
 	}
 }
