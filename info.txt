@@ -1,0 +1,22 @@
+
+Label:
+76543210
+00000000
+
+Byte 1   Byte 2   Byte 3   Byte 4      
+00000000 00000000 00000000 00000000
+
+
+Byte 1 8 bit number for red value (0-255)
+Byte 2 8 bit number for green value (0-255)
+Byte 3 8 bit number for blue value (0-255)
+Byte 4
+ (bits 0-5):6 bit number for index of led(0-63) 
+ (bit 7) ignores all color and index data.
+ (bit 6) led refresh
+ 
+ This protocol has no error detection or correction and can not handle interrupts in connection(while transmitting) to the microcontroller.
+ 
+ Timing:
+  Serial is running at 15000 Baud
+  Led show has a delay of 3ms (auto show calls show every time led is set)
