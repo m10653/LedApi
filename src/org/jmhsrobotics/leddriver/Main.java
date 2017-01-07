@@ -1,3 +1,4 @@
+package org.jmhsrobotics.leddriver;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortTimeoutException;
@@ -8,14 +9,19 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException, SerialPortException, SerialPortTimeoutException, InvalidLedDeviceException {
 		LedControler controler = new LedControler("COM5");
-		controler.toggleAutoShow();
+		//		controler.toggleAutoShow();
+
 		for (int j = 0; j < 500 / 2; j++) {
 			color(controler, (int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+			controler.show();
 			random(controler);
+			controler.show();
 			color(controler, 255, 255, 255);
+			controler.show();
 			color(controler, 0, 0, 0);
+			controler.show();
 		}
-		Thread.sleep(500);
+		Thread.sleep(5000);
 
 		System.exit(0);
 
